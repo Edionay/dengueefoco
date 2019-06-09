@@ -1,0 +1,78 @@
+.main {
+    background-color: #60747C;
+    padding-top: 25px;
+}
+
+.label {
+    padding-right: 7px;
+}
+
+.navbar {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#nav-tab {
+    background-color: #284854;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    padding-top: 1px;
+    border-top-width: 0px;
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    background: #60747c;
+    color: #284854;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    font-weight: bolder;
+}
+
+.botao-filtro {
+    background: #284854;
+    border: #284854;
+}
+
+.nav-tabs .nav-link {
+    padding-top: 1px;
+    border-top-width: 0px;
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    color: #b8b8aa;
+    font-weight: bolder;
+}
+
+.filtro {
+    background: white;
+    margin-top: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.dados {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.grafico {
+    background: white;
+}

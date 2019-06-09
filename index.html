@@ -5,6 +5,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Marker Clustering</title>
     <style>
         /* Always set the map height explicitly to define the size of the div
@@ -26,21 +27,162 @@
 
 <body>
 
-    <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Usuários</a>
-            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Antivetorial</a>
-            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Ovitrampas</a>
+    <nav class="navbar navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" class="d-inline-block align-top" alt="">
+            </a>
         </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            <div id="map"></div>
-        </div>
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
-    </div>
 
+    </nav>
+
+    <section class="main">
+        <div class="container">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Usuários</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Antivetorial</a>
+                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Ovitrampas</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                    <form class="form-inline filtro">
+                        <div class="form-group col-2">
+                            <label class="label">Ano: </label>
+                            <select class="custom-select" id="exampleFormControlSelect1">
+                                        <option>2018</option>
+                                        <option>2019</option>
+                                        </select>
+                        </div>
+                        <button type="submit" class="btn botao-filtro btn-primary col-3">Filtro</button>
+                    </form>
+
+                    <div class="row dados">
+                        <div id="map" class="col-6">
+                        </div>
+                        <div class="col-6 grafico">
+                            <canvas id="myChart" width="400" height="320"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <form class="form-inline filtro">
+                        <div class="form-group col-2">
+                            <label class="label">Ano: </label>
+                            <select class="custom-select" id="exampleFormControlSelect1">
+                                                <option>2018</option>
+                                                <option>2019</option>
+                                                </select>
+                        </div>
+                        <button type="submit" class="btn botao-filtro btn-primary col-3">Filtro</button>
+                    </form>
+
+                    <div class="row dados">
+                        <div id="map2" class="col-6">
+                        </div>
+                        <div class="col-6 grafico">
+                            <canvas id="myChart2" width="400" height="320"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+                    <form class="form-inline filtro">
+                        <div class="form-group col-2">
+                            <label class="label">Ano: </label>
+                            <select class="custom-select" id="exampleFormControlSelect1">
+                                                <option>2018</option>
+                                                <option>2019</option>
+                                                </select>
+                        </div>
+                        <button type="submit" class="btn botao-filtro btn-primary col-3">Filtro</button>
+                    </form>
+
+                    <div class="row dados">
+                        <div id="map3" class="col-6">
+                        </div>
+                        <div class="col-6 grafico">
+                            <canvas id="myChart3" width="400" height="320"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                datasets: [{
+                    label: 'Denúncias de usuários',
+                    data: ['2562', '2165', '3528', '8440', '6312', '5796', '3934', '2524', '3558', '1739', '4567', '5624'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        var ctx2 = document.getElementById('myChart2').getContext('2d');
+        var myChart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                datasets: [{
+                    label: 'Denúncias de usuários',
+                    data: ['2562', '2165', '3528', '8440', '6312', '5796', '3934', '2524', '3558', '1739', '4567', '5624'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        var ctx3 = document.getElementById('myChart3').getContext('2d');
+        var myChart = new Chart(ctx3, {
+            type: 'line',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                datasets: [{
+                    label: 'Denúncias de usuários',
+                    data: ['2562', '2165', '3528', '8440', '6312', '5796', '3934', '2524', '3558', '1739', '4567', '5624'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -48,8 +190,23 @@
 
     <script>
         function initMap() {
-
             var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: {
+                    lat: -16.6799,
+                    lng: -49.255
+                }
+            });
+
+            var map2 = new google.maps.Map(document.getElementById('map2'), {
+                zoom: 12,
+                center: {
+                    lat: -16.6799,
+                    lng: -49.255
+                }
+            });
+
+            var map3 = new google.maps.Map(document.getElementById('map3'), {
                 zoom: 12,
                 center: {
                     lat: -16.6799,
@@ -71,16 +228,51 @@
                 });
             });
 
+            var markers2 = locations.map(function(location, i) {
+                return new google.maps.Marker({
+                    position: location,
+                    label: labels[i % labels.length]
+                });
+            });
+
+            var markers3 = locations.map(function(location, i) {
+                return new google.maps.Marker({
+                    position: location,
+                    label: labels[i % labels.length]
+                });
+            });
+
             // Add a marker clusterer to manage the markers.
             var markerCluster = new MarkerClusterer(map, markers, {
                 imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
             });
             google.maps.event.trigger(map, 'resize');
 
+            var markerCluster = new MarkerClusterer(map2, markers2, {
+                imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+            });
+            google.maps.event.trigger(map2, 'resize');
+
+            var markerCluster = new MarkerClusterer(map3, markers3, {
+                imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+            });
+            google.maps.event.trigger(map3, 'resize');
+
             $('a[href="#profile"]').on('shown', function(e) {
                 google.maps.event.trigger(map, 'resize');
             });
+            $('a[href="#profile"]').on('shown', function(e) {
+                google.maps.event.trigger(map2, 'resize');
+            });
+            $('a[href="#profile"]').on('shown', function(e) {
+                google.maps.event.trigger(map3, 'resize');
+            });
             $("#map").css("width", 500).css("height", 500);
+            $("#map2").css("width", 500).css("height", 500);
+            $("#map3").css("width", 500).css("height", 500);
+
+
+
         }
 
         var locations = [{
