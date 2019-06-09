@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Marker Clustering</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        
+        #map {
+            height: 50%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Usuários</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Antivetorial</a>
+            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Ovitrampas</a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div id="map"></div>
+        </div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+        function initMap() {
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: {
+                    lat: -16.6799,
+                    lng: -49.255
+                }
+            });
+
+            // Create an array of alphabetical characters used to label the markers.
+            var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+            // Add some markers to the map.
+            // Note: The code uses the JavaScript Array.prototype.map() method to
+            // create an array of markers based on a given "locations" array.
+            // The map() method here has nothing to do with the Google Maps API.
+            var markers = locations.map(function(location, i) {
+                return new google.maps.Marker({
+                    position: location,
+                    label: labels[i % labels.length]
+                });
+            });
+
+            // Add a marker clusterer to manage the markers.
+            var markerCluster = new MarkerClusterer(map, markers, {
+                imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+            });
+            google.maps.event.trigger(map, 'resize');
+
+            $('a[href="#profile"]').on('shown', function(e) {
+                google.maps.event.trigger(map, 'resize');
+            });
+            $("#map").css("width", 500).css("height", 500);
+        }
+
+        var locations = [{
+            lat: -16.54595121290,
+            lng: -49.26878648630
+        }, {
+            lat: -16.54598128560,
+            lng: -49.26860172760
+        }, {
+            lat: -16.54604031530,
+            lng: -49.26880207530
+        }, {
+            lat: -1654607038750,
+            lng: -49.26861731650
+        }, {
+            lat: -16.54612941750,
+            lng: -49.26881766450
+        }, {
+            lat: -16.621519,
+            lng: -49.220019
+        }, {
+            lat: -16.620738,
+            lng: -49.221350
+        }, {
+            lat: -16.618949,
+            lng: -49.222380
+
+        }, {
+            lat: -16.617859,
+            lng: -49.221285
+        }, {
+            lat: -16.616050,
+            lng: -49.225384
+
+        }, {
+            lat: -16.615278,
+            lng: -49.216747
+
+        }, {
+            lat: -16.614804,
+            lng: -49.216784
+        }, {
+            lat: -16.614450,
+            lng: -49.216516
+        }, {
+            lat: -16.6614801,
+            lng: -49.217342
+
+        }, {
+            lat: -16.613892,
+            lng: -49.218818
+
+        }, {
+            lat: -16.613224,
+            lng: -49.217609
+
+        }, {
+            lat: -16.613335,
+            lng: -49.219193
+
+        }, {
+            lat: -16.612844,
+            lng: -49.218061
+
+        }, {
+            lat: -16.722323,
+            lng: -49.303064
+        }, {
+            lat: -16.726401,
+            lng: -49.303127
+        }, {
+            lat: -16.722116,
+            lng: -49.296208
+
+        }, {
+            lat: -16.724051,
+            lng: -49.294548
+
+        }, {
+            lat: -16.723844,
+            lng: -49.304292
+
+        }, {
+            lat: -16.738744,
+            lng: -49.261472
+
+        }, {
+            lat: -16.741580,
+            lng: -49.264734
+        }, {
+            lat: -16.741580,
+            lng: -49.260743
+
+        }, {
+            lat: -16.742114,
+            lng: -49.256537
+
+        }, {
+            lat: -16.745196,
+            lng: -49.258522
+
+        }, {
+            lat: -16.734018,
+            lng: -49.266150
+
+        }, {
+            lat: -16.711032,
+            lng: -49.255817
+
+        }, {
+            lat: -16.711192,
+            lng: -49.249308
+
+        }, {
+            lat: -16.715959,
+            lng: -49.255134
+
+        }, {
+            lat: -16.716177,
+            lng: -49.248883
+
+        }, {
+            lat: -16.713009,
+            lng: -49.256773
+        }]
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuuq_Td4NjK9DSowVe03PegsojAI70Hxw&callback=initMap">
+    </script>
+
+
+
+</body>
+
+</html>
