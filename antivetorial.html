@@ -6,43 +6,40 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Marker Clustering</title>
+    <link rel="stylesheet" type="text/css" href="css/denuncia.css">
+    <title>Antivetorial</title>
 
 </head>
 
 <body>
     <div class="container">
+        <h1 class="text-white text-center">Agente de Saúde</h1>
+
         <form onsubmit="notificarPrefeitura()">
 
-            <div class="row">
-                <h1>Antivetorial</h1>
+            <div class="form-row">
 
-                <div class="col-10">
+                <div class="col-12 form-group">
                     <input type="text" id="id-do-agente" class="form-control" placeholder="Agente" required>
                 </div>
-                <div class="col-2">
-                    <button type="button" class="btn btn-sm btn-light">
-                        <i class="material-icons">gps_fixed</i>
-                    </button>
-                </div>
             </div>
-            <div class="row">
-                <div class="col-6">
+            <div class="form-row">
+                <div class="col-6 form-group">
                     <select class="custom-select" id="exampleFormControlSelect1">
                             <option>Larvicida</option>
                             <option>Pyriproxfen 0</option>
                             <option>Spinosade</option>
                             </select>
                 </div>
-                <div class="col-2">
+                <div class="col-2 form-group">
                     <input type="text" id="quantidade-de-larvicida" class="form-control" placeholder="Quantidade">
                 </div>
-                <div class="col-4">
+                <div class="col-4 form-group">
                     <input type="date" id="data" class="form-control">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-6">
+            <div class="form-row">
+                <div class="col-6 form-group">
                     <select class="custom-select" id="exampleFormControlSelect1">
                                 <option>Status do imóvel</option>
                                 <option>Visitado</option>
@@ -51,7 +48,7 @@
                                 <option>Fechado</option>
                                 </select>
                 </div>
-                <div class="col-6">
+                <div class="col-6 form-group">
                     <select class="custom-select" id="exampleFormControlSelect1">
                                     <option>Tipo de imóvel</option>
                                     <option>Casa</option>
@@ -63,47 +60,47 @@
             </div>
 
 
-            <div class="row">
-                <div class="col-10">
+            <div class="form-row">
+                <div class="col-10 form-group">
                     <input type="text" id="cep" class="form-control" placeholder="CEP" required>
                 </div>
-                <div class="col-2">
+                <div class="col-2 form-group">
                     <button type="button" onclick="getEnderecoPorCep()" class="btn btn-sm btn-light">
                         <i class="material-icons">gps_fixed</i>
                     </button>
                 </div>
             </div>
             <div>
-                <div class="row">
-                    <div class="col-12">
+                <div class="form-row">
+                    <div class="col-12 form-group">
                         <input type="text" id="rua" class="form-control" placeholder="Rua... Avenida...">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-4">
+                <div class="form-row">
+                    <div class="col-4 form-group">
                         <input type="text" class="form-control" placeholder="Quadra">
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 form-group">
                         <input type="text" class="form-control" placeholder="Lote">
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 form-group">
                         <input type="text" class="form-control" placeholder="Número">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-8">
+                <div class="form-row">
+                    <div class="col-8 form-group">
                         <input type="text" id="setor" class="form-control" placeholder="Setor">
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 form-group">
                         <input type="text" id="cidade" class="form-control" placeholder="Cidade">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12">
+                <div class="form-row">
+                    <div class="col-12 form-group">
                         <textarea class="form-control" rows="3"></textarea>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Notificar Prefeitura</button>
+                <button type="submit" class="btn botao-denuncia btn-primary btn-lg btn-block">REGISTRAR</button>
             </div>
 
         </form>

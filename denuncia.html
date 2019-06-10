@@ -6,19 +6,22 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Marker Clustering</title>
+    <link rel="stylesheet" type="text/css" href="css/denuncia.css">
+
+    <title>Denúncia cidadã</title>
 
 </head>
 
 <body>
     <div class="container">
+        <h1 class="text-white text-center">REPORTAR FOCO</h1>
+
         <form onsubmit="notificarPrefeitura()">
-            <div class="row">
-                <h1>Reportar foco</h1>
-                <div class="col-10">
-                    <input type="text" id="cep" class="form-control" placeholder="CEP" required>
+            <div class="form-row">
+                <div class="col-10 form-group">
+                    <input type="text" id="cep" class="form-control" placeholder="CEP do foco" required>
                 </div>
-                <div class="col-2">
+                <div class="col-2 form-group">
                     <button type="button" onclick="getEnderecoPorCep()" class="btn btn-sm btn-light">
                         <i class="material-icons">gps_fixed</i>
                     </button>
@@ -26,35 +29,32 @@
             </div>
             <div>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 form-group">
                         <input type="text" id="rua" class="form-control" placeholder="Rua... Avenida...">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-4 form-group">
                         <input type="text" class="form-control" placeholder="Quadra">
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 form-group">
                         <input type="text" class="form-control" placeholder="Lote">
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 form-group">
                         <input type="text" class="form-control" placeholder="Número">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-12 form-group">
                         <input type="text" id="setor" class="form-control" placeholder="Setor">
-                    </div>
-                    <div class="col-4">
-                        <input type="text" id="cidade" class="form-control" placeholder="Cidade">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 form-group">
                         <textarea id="observacoes" placeholder="Observações" class="form-control" rows="3"></textarea>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Notificar Prefeitura</button>
+                <button type="submit" class="btn botao-denuncia btn-primary btn-lg btn-block">NOTIFICAR PREFEITURA</button>
             </div>
 
         </form>
