@@ -1,0 +1,23 @@
+body {
+    background-image: url('../images/form.png')
+}
+
+form {
+    border-top-left-radius: .7rem;
+    border-top-right-radius: .7rem;
+    border-bottom-right-radius: .7rem;
+    border-bottom-left-radius: .7rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 15px 15px 15px 15px;
+}
+
+.botao-denuncia {
+    background: white;
+    border-color: #284854;
+    color: #284854;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    font-weight: bolder;
+}
